@@ -5,9 +5,7 @@ import 'dart:math' as math;
 
 import 'camera.dart';
 import 'bndbox.dart';
-
-const String ssd = "SSD MobileNet";
-const String yolo = "Tiny YOLOv2";
+import 'models.dart';
 
 class HomePage extends StatefulWidget {
   final List<CameraDescription> cameras;
@@ -38,11 +36,22 @@ class _HomePageState extends State<HomePage> {
           labels: "assets/yolov2_tiny.txt",
         );
         break;
+
+      case mobilenet:
+        res = await Tflite.loadModel(
+            model: "assets/mobilenet_v1_1.0_224.tflite",
+            labels: "assets/mobilenet_v1_1.0_224.txt");
+        break;
+
+      case posenet:
+        res = await Tflite.loadModel(
+            model: "assets/posenet_mv1_075_float_from_checkpoints.tflite");
+        break;
+
       default:
         res = await Tflite.loadModel(
             model: "assets/ssd_mobilenet.tflite",
             labels: "assets/ssd_mobilenet.txt");
-        break;
     }
     print(res);
   }
@@ -79,6 +88,14 @@ class _HomePageState extends State<HomePage> {
                     child: const Text(yolo),
                     onPressed: () => onSelect(yolo),
                   ),
+                  RaisedButton(
+                    child: const Text(mobilenet),
+                    onPressed: () => onSelect(mobilenet),
+                  ),
+                  RaisedButton(
+                    child: const Text(posenet),
+                    onPressed: () => onSelect(posenet),
+                  ),
                 ],
               ),
             )
@@ -90,12 +107,12 @@ class _HomePageState extends State<HomePage> {
                   setRecognitions,
                 ),
                 BndBox(
-                  _recognitions == null ? [] : _recognitions,
-                  math.max(_imageHeight, _imageWidth),
-                  math.min(_imageHeight, _imageWidth),
-                  screen.height,
-                  screen.width,
-                ),
+                    _recognitions == null ? [] : _recognitions,
+                    math.max(_imageHeight, _imageWidth),
+                    math.min(_imageHeight, _imageWidth),
+                    screen.height,
+                    screen.width,
+                    _model),
               ],
             ),
     );

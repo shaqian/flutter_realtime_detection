@@ -26,7 +26,8 @@ dev_dependencies:
 
   camera: 0.4.0
 
-  tflite: 1.0.1
+  tflite: 1.0.4
+  
 # For information on the generic Dart part of this file, see the
 # following page: https://www.dartlang.org/tools/pub/pubspec
 
@@ -47,6 +48,9 @@ flutter:
    - assets/yolov2_tiny.txt
    - assets/ssd_mobilenet.tflite
    - assets/ssd_mobilenet.txt
+   - assets/mobilenet_v1_1.0_224.tflite
+   - assets/mobilenet_v1_1.0_224.txt
+   - assets/posenet_mv1_075_float_from_checkpoints.tflite
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.io/assets-and-images/#resolution-aware.
