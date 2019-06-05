@@ -15,7 +15,6 @@ flutter packages get
 ```
 flutter run
 ```
-<<<<<<< HEAD
 
 ## Models
 
@@ -33,5 +32,3 @@ flutter run
 
 ![](preview.jpg) 
 
-=======
->>>>>>> origin/master
