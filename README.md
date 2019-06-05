@@ -2,7 +2,7 @@ For details: https://medium.com/@shaqian629/real-time-object-detection-in-flutte
 
 # flutter_realtime_detection
 
-Real-time object detetion in Flutter using [camera](https://pub.dartlang.org/packages/camera) and [tflite](https://pub.dartlang.org/packages/tflite) plugin. 
+Real-time object detection in Flutter using [camera](https://pub.dartlang.org/packages/camera) and [tflite](https://pub.dartlang.org/packages/tflite) plugin. 
 
 ## Install 
 
@@ -15,6 +15,7 @@ flutter packages get
 ```
 flutter run
 ```
+<<<<<<< HEAD
 
 ## Models
 
@@ -32,3 +33,5 @@ flutter run
 
 ![](preview.jpg) 
 
+=======
+>>>>>>> origin/master
