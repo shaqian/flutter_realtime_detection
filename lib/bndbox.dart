@@ -44,8 +44,8 @@ class BndBox extends StatelessWidget {
         }
 
         return Positioned(
-          left: math.max(0, x),
-          top: math.max(0, y),
+          left: math.max(0.0, x),
+          top: math.max(0.0, y),
           width: w,
           height: h,
           child: Container(
@@ -70,11 +70,11 @@ class BndBox extends StatelessWidget {
     }
 
     List<Widget> _renderStrings() {
-      double offset = -10;
+      double offset = -10.0;
       return results.map((re) {
         offset = offset + 14;
         return Positioned(
-          left: 10,
+          left: 10.0,
           top: offset,
           width: screenW,
           height: screenH,
@@ -114,8 +114,8 @@ class BndBox extends StatelessWidget {
           return Positioned(
             left: x - 6,
             top: y - 6,
-            width: 100,
-            height: 12,
+            width: 100.0,
+            height: 12.0,
             child: Container(
               child: Text(
                 "● ${k["part"]}",
