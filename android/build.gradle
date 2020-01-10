@@ -23,7 +23,38 @@ subprojects {
 subprojects {
     project.evaluationDependsOn(':app')
 }
-
+subprojects {
+    project.evaluationDependsOn(':app')
+        afterEvaluate {project ->
+            if (project.hasProperty("android")) {
+                android {
+                    compileSdkVersion 28
+                    buildToolsVersion '28.0.3'
+                }
+                configurations.all {
+                    resolutionStrategy { 
+                        force 'com.google.android.gms:play-services-gcm:16.1.0'
+                        force 'com.google.android.gms:play-services-location:16.0.1'
+                        force 'com.google.android.gms:play-services-basement:16.2.0'
+                        force 'com.google.android.gms:play-services-auth:16.0.1'
+                        force 'com.google.android.gms:play-services-stats:16.0.1'
+                        force 'com.google.android.gms:play-services-base:16.0.1'
+                    }
+                }
+            }
+        }
+    
+} // this is for release build
+subprojects {
+    project.configurations.all {
+	resolutionStrategy.eachDependency { details ->
+            if (details.requested.group == 'androidx.core' &&
+	       !details.requested.name.contains('androidx')) {
+		details.useVersion "1.0.1"
+            }
+	}
+    }    
+} // this is for debug running
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
