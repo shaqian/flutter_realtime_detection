@@ -30,7 +30,7 @@ class _CameraState extends State<Camera> {
       print('No camera is found');
     } else {
       controller = new CameraController(
-        widget.cameras[0],
+        widget.cameras[1],
         ResolutionPreset.high,
       );
       controller.initialize().then((_) {
@@ -69,6 +69,9 @@ class _CameraState extends State<Camera> {
                 imageHeight: img.height,
                 imageWidth: img.width,
                 numResults: 2,
+                rotation: -90,
+                threshold: 0.2,
+                nmsRadius: 10,
               ).then((recognitions) {
                 int endTime = new DateTime.now().millisecondsSinceEpoch;
                 print("Detection took ${endTime - startTime}");

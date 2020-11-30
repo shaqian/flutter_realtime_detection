@@ -43,6 +43,9 @@ class BndBox extends StatelessWidget {
           if (_y < difH / 2) h -= (difH / 2 - _y) * scaleH;
         }
 
+        // points are mirrored when using the front-camera, hence, change x-coords...
+        x = screenW - x;
+
         return Positioned(
           left: math.max(0, x),
           top: math.max(0, y),
@@ -137,7 +140,9 @@ class BndBox extends StatelessWidget {
     return Stack(
       children: model == mobilenet
           ? _renderStrings()
-          : model == posenet ? _renderKeypoints() : _renderBoxes(),
+          : model == posenet
+              ? _renderKeypoints()
+              : _renderBoxes(),
     );
   }
 }
