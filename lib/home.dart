@@ -80,19 +80,19 @@ class _HomePageState extends State<HomePage> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  RaisedButton(
+                  ElevatedButton(
                     child: const Text(ssd),
                     onPressed: () => onSelect(ssd),
                   ),
-                  RaisedButton(
+                  ElevatedButton(
                     child: const Text(yolo),
                     onPressed: () => onSelect(yolo),
                   ),
-                  RaisedButton(
+                  ElevatedButton(
                     child: const Text(mobilenet),
                     onPressed: () => onSelect(mobilenet),
                   ),
-                  RaisedButton(
+                  ElevatedButton(
                     child: const Text(posenet),
                     onPressed: () => onSelect(posenet),
                   ),
