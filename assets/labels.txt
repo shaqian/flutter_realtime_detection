@@ -1,0 +1,2 @@
+0 rootDamage
+1 noDamage
